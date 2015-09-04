@@ -48,7 +48,7 @@ describe('A <Link>', function () {
 
     React.render((
       <Router history={createHistory('/')}>
-        <Route path="/" component={LinkWrapper}/>
+        <Route path="/" component={LinkWrapper} />
       </Router>
     ), node, function () {
       var a = node.querySelector('a');
@@ -67,7 +67,7 @@ describe('A <Link>', function () {
 
   //  render((
   //    <Router history={new HashHistory}>
-  //      <Route path="/" component={LinkWrapper}/>
+  //      <Route path="/" component={LinkWrapper} />
   //    </Router>
   //  ), node, function () {
   //    var a = node.querySelector('a');
@@ -91,7 +91,7 @@ describe('A <Link>', function () {
       React.render((
         <Router history={createHistory('/hello/michael')}>
           <Route path="/" component={App}>
-            <Route path="hello/:name" component={Hello}/>
+            <Route path="hello/:name" component={Hello} />
           </Route>
         </Router>
       ), node, function () {
@@ -105,7 +105,7 @@ describe('A <Link>', function () {
       React.render((
         <Router history={createHistory('/hello/michael')}>
           <Route path="/" component={App}>
-            <Route path="hello/:name" component={Hello}/>
+            <Route path="hello/:name" component={Hello} />
           </Route>
         </Router>
       ), node, function () {
@@ -133,7 +133,7 @@ describe('A <Link>', function () {
         function () {
           a = node.querySelector('a');
           expect(a.className).toEqual('dontKillMe');
-          this.transitionTo('/hello');
+          this.history.pushState(null, '/hello');
         },
         function () {
           expect(a.className).toEqual('dontKillMe');
@@ -145,8 +145,8 @@ describe('A <Link>', function () {
       React.render((
         <Router history={createHistory('/goodbye')} onUpdate={execNextStep}>
           <Route path="/" component={LinkWrapper}>
-            <Route path="goodbye" component={Goodbye}/>
-            <Route path="hello" component={Hello}/>
+            <Route path="goodbye" component={Goodbye} />
+            <Route path="hello" component={Hello} />
           </Route>
         </Router>
       ), node, execNextStep);
@@ -170,7 +170,7 @@ describe('A <Link>', function () {
         function () {
           a = node.querySelector('a');
           expect(a.className).toEqual('dontKillMe');
-          this.transitionTo('/hello');
+          this.history.pushState(null, '/hello');
         },
         function () {
           expect(a.className).toEqual('dontKillMe highlight');
@@ -182,8 +182,8 @@ describe('A <Link>', function () {
       React.render((
         <Router history={createHistory('/goodbye')} onUpdate={execNextStep}>
           <Route path="/" component={LinkWrapper}>
-            <Route path="goodbye" component={Goodbye}/>
-            <Route path="hello" component={Hello}/>
+            <Route path="goodbye" component={Goodbye} />
+            <Route path="hello" component={Hello} />
           </Route>
         </Router>
       ), node, execNextStep);
@@ -205,7 +205,7 @@ describe('A <Link>', function () {
         function () {
           a = node.querySelector('a');
           expect(a.style.color).toEqual('white');
-          this.transitionTo('/hello');
+          this.history.pushState(null, '/hello');
         },
         function () {
           expect(a.style.color).toEqual('red');
@@ -217,8 +217,8 @@ describe('A <Link>', function () {
       React.render((
         <Router history={createHistory("/goodbye")} onUpdate={execNextStep}>
           <Route path="/" component={LinkWrapper}>
-            <Route path="hello" component={Hello}/>
-            <Route path="goodbye" component={Goodbye}/>
+            <Route path="hello" component={Hello} />
+            <Route path="goodbye" component={Goodbye} />
           </Route>
         </Router>
       ), node, execNextStep);
@@ -240,8 +240,8 @@ describe('A <Link>', function () {
 
       React.render((
         <Router history={createHistory('/')}>
-          <Route path="/" component={LinkWrapper}/>
-          <Route path="/hello" component={Hello}/>
+          <Route path="/" component={LinkWrapper} />
+          <Route path="/hello" component={Hello} />
         </Router>
       ), node, () => {
         click(node.querySelector('a'));
@@ -271,8 +271,8 @@ describe('A <Link>', function () {
 
       React.render((
         <Router history={createHistory('/')} onUpdate={execNextStep}>
-          <Route path="/" component={LinkWrapper}/>
-          <Route path="/hello" component={Hello}/>
+          <Route path="/" component={LinkWrapper} />
+          <Route path="/hello" component={Hello} />
         </Router>
       ), node, execNextStep);
     });
