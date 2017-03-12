@@ -1,6 +1,6 @@
 {
   "name": "react-router-redux",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "description": "Redux bindings for React Router",
   "repository": "ReactTraining/react-router",
   "license": "MIT",
@@ -19,6 +19,7 @@
   "module": "es/index.js",
   "scripts": {
     "build": "node ./tools/build.js",
+    "prepublish": "node ./tools/build.js",
     "watch": "babel ./modules -d . --ignore __tests__ --watch",
     "clean": "git clean -e '!node_modules' -fdX .",
     "lint": "eslint modules",
